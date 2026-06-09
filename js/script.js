@@ -119,6 +119,17 @@ function renderCountdown() {
 renderCountdown();
 setInterval(renderCountdown, 1000);
 
+// ===== Sticker Spin =====
+const sticker = document.getElementById('sticker');
+if (sticker) {
+  sticker.addEventListener('click', () => {
+    sticker.classList.remove('spin');
+    void sticker.offsetWidth; // restart animation
+    sticker.classList.add('spin');
+  });
+  sticker.addEventListener('animationend', () => sticker.classList.remove('spin'));
+}
+
 // ===== Network Chat Typing Effect =====
 const networkText = document.getElementById('networkText');
 const networkCaret = document.getElementById('networkCaret');

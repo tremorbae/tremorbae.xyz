@@ -32,13 +32,37 @@
     <div class="window" id="player-window">
       <div class="window-body">
         <div class="video-wrap">
-          <video id="video" src="assets/video/aligator5005.mp4" playsinline></video>
+          <video id="video" src="assets/video/aligator5005.mp4" poster="assets/img/video-poster.jpg" preload="metadata" playsinline></video>
           <button id="playPause" class="play-overlay" aria-label="Play">
             <svg id="playIcon" viewBox="0 0 24 24" width="48" height="48"><path d="M8 5v14l11-7z"/></svg>
             <svg id="pauseIcon" class="hidden" viewBox="0 0 24 24" width="48" height="48"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
           </button>
         </div>
       </div>
+    </div>
+
+    <!-- Star rating row -->
+    <div class="stars" aria-label="5 stars">
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="facetStar" viewBox="0 0 24 24">
+          <path class="facet-light" d="M12 12 L9.53 8.60 L12 2 Z" />
+          <path class="facet-dark"  d="M12 12 L12 2 L14.47 8.60 Z" />
+          <path class="facet-light" d="M12 12 L14.47 8.60 L21.51 8.91 Z" />
+          <path class="facet-dark"  d="M12 12 L21.51 8.91 L15.99 13.30 Z" />
+          <path class="facet-light" d="M12 12 L15.99 13.30 L17.88 20.09 Z" />
+          <path class="facet-dark"  d="M12 12 L17.88 20.09 L12 16.20 Z" />
+          <path class="facet-light" d="M12 12 L12 16.20 L6.12 20.09 Z" />
+          <path class="facet-dark"  d="M12 12 L6.12 20.09 L8.01 13.30 Z" />
+          <path class="facet-light" d="M12 12 L8.01 13.30 L2.49 8.91 Z" />
+          <path class="facet-dark"  d="M12 12 L2.49 8.91 L9.53 8.60 Z" />
+          <path class="facet-outline" d="M12 2 L14.47 8.60 L21.51 8.91 L15.99 13.30 L17.88 20.09 L12 16.20 L6.12 20.09 L8.01 13.30 L2.49 8.91 L9.53 8.60 Z" />
+        </symbol>
+      </svg>
+      <svg class="star" width="34" height="34"><use href="#facetStar" /></svg>
+      <svg class="star" width="34" height="34"><use href="#facetStar" /></svg>
+      <svg class="star" width="34" height="34"><use href="#facetStar" /></svg>
+      <svg class="star" width="34" height="34"><use href="#facetStar" /></svg>
+      <svg class="star" width="34" height="34"><use href="#facetStar" /></svg>
     </div>
 
     <!-- Window: About Me -->
@@ -112,7 +136,7 @@
     </div>
 
     <!-- Sticker -->
-    <img class="sticker" src="assets/img/RemiliaCorporation.png" alt="remilia corporation" />
+    <img class="sticker" id="sticker" src="assets/img/RemiliaCorporation.png" alt="remilia corporation" />
 
     <!-- Window: Image -->
     <div class="window" id="image-window">

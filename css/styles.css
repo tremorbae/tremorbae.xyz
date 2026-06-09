@@ -571,12 +571,39 @@ body {
   51%, 100% { opacity: 0; }
 }
 
+/* ===== Star Row ===== */
+.stars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.stars .star {
+  width: 56px;
+  height: 56px;
+}
+.facet-light { fill: #6d56ff; }
+.facet-dark { fill: #621f1f; }
+.facet-outline {
+  fill: none;
+}
+
 /* ===== Sticker ===== */
 .sticker {
   width: 120px;
   height: auto;
   image-rendering: pixelated;
   display: block;
+  cursor: pointer;
+}
+
+.sticker.spin {
+  animation: stickerSpin 0.3s linear;
+}
+
+@keyframes stickerSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* ===== Days Progress ===== */
