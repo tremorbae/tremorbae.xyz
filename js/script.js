@@ -127,6 +127,26 @@ const networkMessage = "The concept describes art as an act of lucid participati
 let networkStarted = false;
 
 const networkCite = document.getElementById('networkCite');
+const networkCiteMessage = "- wiki remilia";
+
+function typeCite() {
+  if (networkCite) {
+    networkCite.classList.remove('hidden');
+    // Move caret to follow the citation
+    if (networkCaret) networkCite.insertAdjacentElement('afterend', networkCaret);
+  }
+  let j = 0;
+  function tick() {
+    if (j <= networkCiteMessage.length) {
+      if (networkCite) networkCite.textContent = networkCiteMessage.slice(0, j);
+      j++;
+      setTimeout(tick, 25);
+    } else if (networkCaret) {
+      networkCaret.classList.add('hidden');
+    }
+  }
+  tick();
+}
 
 function typeNetwork() {
   let i = 0;
@@ -136,8 +156,7 @@ function typeNetwork() {
       i++;
       setTimeout(tick, 25);
     } else {
-      if (networkCaret) networkCaret.classList.add('hidden');
-      if (networkCite) networkCite.classList.remove('hidden');
+      typeCite();
     }
   }
   tick();

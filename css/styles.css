@@ -522,7 +522,7 @@ body {
   border: 2px solid;
   border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
   padding: 12px;
-  min-height: 190px;
+  min-height: 230px;
 }
 
 .chat-heading {
@@ -544,9 +544,12 @@ body {
   color: #000;
 }
 
-.chat-cite {
-  display: block;
+.chat-cite-line {
   margin-top: 12px;
+}
+
+.chat-cite {
+  display: inline;
   font-size: 13px;
   font-style: italic;
   color: var(--title-2);
