@@ -85,6 +85,7 @@ const END = new Date('2026-08-17T21:00:00-04:00').getTime();
 const TOTAL = END - START;
 
 const progressInner = document.getElementById('progressInner');
+const daysProgress = document.getElementById('daysProgress');
 const cdDays = document.getElementById('cdDays');
 const cdHours = document.getElementById('cdHours');
 const cdMinutes = document.getElementById('cdMinutes');
@@ -110,7 +111,47 @@ function renderCountdown() {
   const elapsed = Math.min(Math.max(now - START, 0), TOTAL);
   const pct = (elapsed / TOTAL) * 100;
   progressInner.style.width = pct + '%';
+
+  const daysCompleted = Math.floor(elapsed / 86400000);
+  daysProgress.textContent = `${daysCompleted}/90 days`;
 }
 
 renderCountdown();
 setInterval(renderCountdown, 1000);
+
+// ===== Network Chat Typing Effect =====
+const networkText = document.getElementById('networkText');
+const networkCaret = document.getElementById('networkCaret');
+const networkMessage = "The concept describes art as an act of lucid participation in the collective intelligence of the internet, where individual authorship dissolves into collaboration with the network itself. It represents a metaphysical framework that unites themes of post-authorship, transcendentalism, performative identity, and free remix culture, positioning the network not merely as a distribution channel but as a spiritual medium through which creative forces manifest.";
+
+let networkStarted = false;
+
+const networkCite = document.getElementById('networkCite');
+
+function typeNetwork() {
+  let i = 0;
+  function tick() {
+    if (i <= networkMessage.length) {
+      networkText.textContent = networkMessage.slice(0, i);
+      i++;
+      setTimeout(tick, 25);
+    } else {
+      if (networkCaret) networkCaret.classList.add('hidden');
+      if (networkCite) networkCite.classList.remove('hidden');
+    }
+  }
+  tick();
+}
+
+if (networkText) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !networkStarted) {
+        networkStarted = true;
+        typeNetwork();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(document.getElementById('network-window'));
+}

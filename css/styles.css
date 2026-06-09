@@ -13,6 +13,13 @@
   --title-1: #1a0033;
   --title-2: #5e17a8;
   --teal: #0a3d3d;
+
+  /* Light green window theme */
+  --green-bg: #d7fecc;
+  --green-hi: #e9ffe1;
+  --green-mid: #bbebb1;
+  --green-dark: #5a8a52;
+  --green-darker: #3a5e34;
 }
 
 body {
@@ -70,7 +77,7 @@ body {
   object-fit: contain;
   image-rendering: pixelated;
   opacity: 0;
-  animation: 4s steps(1) infinite;
+  animation: 2s steps(1) infinite;
 }
 
 /* Eyes open: visible most of the cycle, dips out during the blink */
@@ -140,15 +147,15 @@ body {
 .window {
   width: 680px;
   max-width: 95vw;
-  background: var(--gray);
+  background: var(--green-bg);
   border: 2px solid;
-  border-color: var(--white) var(--gray-darker) var(--gray-darker) var(--white);
+  border-color: var(--green-hi) var(--green-darker) var(--green-darker) var(--green-hi);
   box-shadow: 1px 1px 0 1px rgba(0,0,0,0.4);
   padding: 3px;
 }
 
 .title-bar {
-  background: linear-gradient(90deg, var(--title-1), var(--title-2));
+  background: linear-gradient(90deg, var(--green-darker), var(--green-dark));
   color: #fff;
   display: flex;
   align-items: center;
@@ -182,9 +189,9 @@ body {
 .tb-btn {
   width: 18px;
   height: 16px;
-  background: var(--gray);
+  background: var(--green-mid);
   border: 1px solid;
-  border-color: var(--white) var(--gray-darker) var(--gray-darker) var(--white);
+  border-color: var(--green-hi) var(--green-darker) var(--green-darker) var(--green-hi);
   font-family: inherit;
   font-size: 10px;
   line-height: 1;
@@ -363,9 +370,9 @@ body {
   max-width: 100%;
   margin: 0 auto 18px;
   padding: 0;
-  background: var(--gray);
+  background: var(--green-bg);
   border: 3px solid;
-  border-color: var(--white) var(--gray-darker) var(--gray-darker) var(--white);
+  border-color: var(--green-hi) var(--green-darker) var(--green-darker) var(--green-hi);
   cursor: pointer;
   overflow: hidden;
 }
@@ -378,7 +385,7 @@ body {
 }
 
 .big-square-btn:active {
-  border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
+  border-color: var(--green-darker) var(--green-hi) var(--green-hi) var(--green-darker);
 }
 
 .about-title {
@@ -419,16 +426,16 @@ body {
   width: 34px;
   height: 30px;
   flex-shrink: 0;
-  background: var(--gray);
+  background: var(--green-bg);
   border: 2px solid;
-  border-color: var(--white) var(--gray-darker) var(--gray-darker) var(--white);
+  border-color: var(--green-hi) var(--green-darker) var(--green-darker) var(--green-hi);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .music-btn:active {
-  border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
+  border-color: var(--green-darker) var(--green-hi) var(--green-hi) var(--green-darker);
 }
 .music-btn svg { fill: #000; }
 
@@ -494,9 +501,9 @@ body {
   height: 48px;
   text-decoration: none;
   color: #1a0033;
-  background: var(--gray);
+  background: var(--green-bg);
   border: 2px solid;
-  border-color: var(--white) var(--gray-darker) var(--gray-darker) var(--white);
+  border-color: var(--green-hi) var(--green-darker) var(--green-darker) var(--green-hi);
   cursor: pointer;
 }
 
@@ -506,7 +513,75 @@ body {
 }
 
 .social-btn:active {
+  border-color: var(--green-darker) var(--green-hi) var(--green-hi) var(--green-darker);
+}
+
+/* ===== Network Chat Window ===== */
+.chat-log {
+  background: #fff;
+  border: 2px solid;
   border-color: var(--gray-darker) var(--white) var(--white) var(--gray-darker);
+  padding: 12px;
+  min-height: 190px;
+}
+
+.chat-heading {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #000;
+}
+
+.chat-msg {
+  display: inline;
+}
+
+.chat-text {
+  display: inline;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #000;
+}
+
+.chat-cite {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--title-2);
+  text-decoration: none;
+}
+.chat-cite:hover {
+  text-decoration: underline;
+}
+
+.chat-caret {
+  display: inline-block;
+  color: #000;
+  font-weight: 700;
+  animation: caretBlink 1s steps(1) infinite;
+}
+
+@keyframes caretBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== Sticker ===== */
+.sticker {
+  width: 120px;
+  height: auto;
+  image-rendering: pixelated;
+  display: block;
+}
+
+/* ===== Days Progress ===== */
+.days-progress {
+  text-align: center;
+  font-size: 13px;
+  color: var(--title-2);
+  margin-top: 8px;
 }
 
 /* ===== Footer ===== */
@@ -514,6 +589,5 @@ body {
   text-align: center;
   font-size: 13px;
   color: var(--title-2);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
   margin-top: 4px;
 }
