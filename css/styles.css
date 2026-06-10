@@ -682,6 +682,6 @@ body {
 /* ===== Mobile ===== */
 @media (max-width: 600px) {
   .chat-log {
-    min-height: 340px;
+    min-height: 360px;
   }
 }
