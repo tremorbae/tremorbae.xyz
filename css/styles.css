@@ -22,6 +22,10 @@
   --green-darker: #3a5e34;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'MS Sans Serif', Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
   background: var(--green-bg);
@@ -36,6 +40,8 @@ body {
 .desktop {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -370,6 +376,39 @@ body {
 }
 
 /* ===== About Me ===== */
+#about-window {
+  position: relative;
+}
+
+/* ===== Decorative Stickers ===== */
+.deco-sticker {
+  position: absolute;
+  pointer-events: none;
+  z-index: 20;
+  image-rendering: auto;
+  filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.35));
+}
+
+.deco-monster {
+  width: 92px;
+  height: auto;
+  top: -34px;
+  left: -30px;
+  transform: rotate(28deg);
+}
+
+.deco-spatter {
+  width: 470px;
+  height: auto;
+  bottom: -125px;
+  right: -230px;
+  filter: none;
+}
+
+#timer-window {
+  position: relative;
+}
+
 .big-square-btn {
   display: flex;
   align-items: center;
@@ -578,6 +617,15 @@ body {
 @keyframes caretBlink {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
+}
+
+/* ===== Barbed Wire Divider ===== */
+.wire-divider {
+  width: 680px;
+  max-width: 95vw;
+  height: auto;
+  display: block;
+  pointer-events: none;
 }
 
 /* ===== Star Row ===== */
